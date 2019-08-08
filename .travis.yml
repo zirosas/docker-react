@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+beofre_insall:
+  - docker build -t zirosas/docker-react -f Dockerfile.dev .
+
+
+script:
+  - docker run -e CI=true zirosas/docker-react npm run test
